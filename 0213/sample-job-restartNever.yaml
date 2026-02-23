@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: errjob-unvalidcommand
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: errjob-unvalidcommand
+          image: busybox
+          command: ["ls", "unvalid path"]
